@@ -70,7 +70,7 @@ def main():
     # Kutsutaan funkioita hae_varaukset, joka palauttaa kaikki varaukset oikeilla tietotyypeillä
     
     varaukset = hae_varaukset("varaukset.txt")
-    
+    # Tulostetaan vain vahvistetut varaukset
     print("1) Vahvistetut varaukset")
     for varaus in varaukset[1:]:
         if varaus[8]:  # Jos vahvistettu varaus on tosi:
@@ -81,7 +81,7 @@ def main():
             print(f"- {nimi}, {tila}, {pvm}, {klo}")
             
     print()
-    
+    #Tulostetaan pitkät varaukset, joiden kesto yli 3h.
     print("2) Pitkät varaukset (≥ 3 h")
     for varaus in varaukset[1:]:
         if varaus[6] >= 3:  # Jos varauksen kesto on 3 tai enemmän
@@ -93,7 +93,7 @@ def main():
             print(f"- {nimi}, {pvm}, {klo}, kesto {kesto} h, {tila}")
     
     print()
-
+    # Tulostetaan kaikkien varausten vahvistus status
     print("3) Varausten vahvistus status")
     for varaus in varaukset[1:]:
         nimi=varaus[1]
@@ -101,7 +101,7 @@ def main():
         print(f"{nimi}: -> {vahvistettu}")
     
     print()
-    
+    # Tulostetaan vahvistettujen ja ei-vahvistettujen varausten määrät
     print("4) Yhteenveto varauksista")
     vahvistetut = sum(1 for varaus in varaukset[1:] if varaus[8])
     ei_vahvistetut = sum(1 for varaus in varaukset[1:] if not varaus[8])
@@ -109,14 +109,10 @@ def main():
     print(f"- Ei-vahvistettuja varauksia: {ei_vahvistetut} kpl")
 
     print()
-   
+   # Tulostetaan vahvistettujen varausten kokonaistulot
     print("5) Vahvistettujen varausten kokonaistulot")
     kokonaistulot = sum(varaus[7] for varaus in varaukset[1:] if varaus[8])
     print(f"Vahvistettujen varausten kokonaistulot: {kokonaistulot} €")
-
-
-    
-
 
 
 
