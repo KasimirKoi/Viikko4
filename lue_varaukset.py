@@ -78,7 +78,7 @@ def main():
             tila=varaus[9]
             pvm=varaus[4].strftime("%d.%m.%Y")
             klo=varaus[5].strftime("%H:%M")
-            print(f"- {nimi}, {tila}, {pvm}, {klo}")
+            print(f"- {nimi}, {tila}, {pvm}, klo {klo}")
             
     print()
     #Tulostetaan pitkät varaukset, joiden kesto yli 3h.
